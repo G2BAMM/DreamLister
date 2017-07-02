@@ -22,6 +22,9 @@
 		5B54DFD41F04018A00A86F58 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54DFCC1F04018A00A86F58 /* Store+CoreDataProperties.swift */; };
 		5B54DFD51F04018A00A86F58 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54DFCD1F04018A00A86F58 /* Image+CoreDataClass.swift */; };
 		5B54DFD61F04018A00A86F58 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54DFCE1F04018A00A86F58 /* Image+CoreDataProperties.swift */; };
+		5BDEA9E01F068E700080363D /* ItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEA9DF1F068E700080363D /* ItemDetailVC.swift */; };
+		5BEBC6A61F053E9900EC5D7E /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBC6A51F053E9900EC5D7E /* DetailCell.swift */; };
+		5BEFFB7F1F04149E0040A0BB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFFB7E1F04149E0040A0BB /* MaterialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		5B54DFCC1F04018A00A86F58 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B54DFCD1F04018A00A86F58 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B54DFCE1F04018A00A86F58 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5BDEA9DF1F068E700080363D /* ItemDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailVC.swift; sourceTree = "<group>"; };
+		5BEBC6A51F053E9900EC5D7E /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		5BEFFB7E1F04149E0040A0BB /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 		5B54DFBD1F03F6E200A86F58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BEFFB7E1F04149E0040A0BB /* MaterialView.swift */,
+				5BEBC6A51F053E9900EC5D7E /* DetailCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				5B54DFA91F03EEE200A86F58 /* MainVC.swift */,
+				5BDEA9DF1F068E700080363D /* ItemDetailVC.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -218,6 +227,7 @@
 				5B54DFCF1F04018A00A86F58 /* ItemType+CoreDataClass.swift in Sources */,
 				5B54DFC21F03F74600A86F58 /* CustomTextField.swift in Sources */,
 				5B54DFD51F04018A00A86F58 /* Image+CoreDataClass.swift in Sources */,
+				5BEFFB7F1F04149E0040A0BB /* MaterialView.swift in Sources */,
 				5B54DFAA1F03EEE200A86F58 /* MainVC.swift in Sources */,
 				5B54DFD61F04018A00A86F58 /* Image+CoreDataProperties.swift in Sources */,
 				5B54DFD41F04018A00A86F58 /* Store+CoreDataProperties.swift in Sources */,
@@ -226,6 +236,8 @@
 				5B54DFD21F04018A00A86F58 /* Item+CoreDataProperties.swift in Sources */,
 				5B54DFD31F04018A00A86F58 /* Store+CoreDataClass.swift in Sources */,
 				5B54DFD11F04018A00A86F58 /* Item+CoreDataClass.swift in Sources */,
+				5BEBC6A61F053E9900EC5D7E /* DetailCell.swift in Sources */,
+				5BDEA9E01F068E700080363D /* ItemDetailVC.swift in Sources */,
 				5B54DFB01F03EEE200A86F58 /* DreamLister.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +402,7 @@
 				5B54DFBB1F03EEE200A86F58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
