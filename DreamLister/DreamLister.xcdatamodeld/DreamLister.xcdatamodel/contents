@@ -8,6 +8,7 @@
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="imageId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="imageId" inverseEntity="Image" syncable="YES"/>
@@ -16,7 +17,7 @@
     </entity>
     <entity name="ItemType" representedClassName=".ItemType" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="typeId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="typeId" inverseEntity="Item" syncable="YES"/>
+        <relationship name="typeId" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="typeId" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Store" representedClassName=".Store" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,7 +26,7 @@
     </entity>
     <elements>
         <element name="Image" positionX="502" positionY="-151" width="128" height="88"/>
-        <element name="Item" positionX="333" positionY="-450" width="128" height="148"/>
+        <element name="Item" positionX="349" positionY="-459" width="146" height="163"/>
         <element name="ItemType" positionX="-11" positionY="-471" width="128" height="73"/>
         <element name="Store" positionX="-74" positionY="-214" width="128" height="88"/>
     </elements>

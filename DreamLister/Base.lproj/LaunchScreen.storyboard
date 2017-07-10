@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +18,55 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dare to dream" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLM-Xz-nJO">
+                                <rect key="frame" x="55" y="512" width="210" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ydu-Rc-hyB"/>
+                                    <constraint firstAttribute="width" constant="210" id="nRM-oT-xkM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Lister" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35J-Ou-yoX">
+                                <rect key="frame" x="55" y="47" width="210" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="G5z-8u-E4h"/>
+                                    <constraint firstAttribute="width" constant="210" id="oqQ-Na-4vm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dream-Big-PPT-Title" translatesAutoresizingMaskIntoConstraints="NO" id="LbZ-xX-hJy">
+                                <rect key="frame" x="0.0" y="152.5" width="320" height="263"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="263" id="HrT-L6-2Nd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.24113684892654419" blue="0.56575906276702881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vLM-Xz-nJO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CjY-CH-2H9"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vLM-Xz-nJO" secondAttribute="bottom" constant="35" id="IG0-ss-tTb"/>
+                            <constraint firstItem="35J-Ou-yoX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Kv9-Gm-qpT"/>
+                            <constraint firstItem="LbZ-xX-hJy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WE8-i5-4vo"/>
+                            <constraint firstItem="LbZ-xX-hJy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ex1-i1-bv9"/>
+                            <constraint firstItem="35J-Ou-yoX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="27" id="nZT-hN-ecp"/>
+                            <constraint firstAttribute="trailing" secondItem="LbZ-xX-hJy" secondAttribute="trailing" id="sJW-CN-UxB"/>
+                            <constraint firstItem="LbZ-xX-hJy" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ted-gP-r4s"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="50.625" y="372.88732394366195"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Dream-Big-PPT-Title" width="3000" height="2250"/>
+    </resources>
 </document>

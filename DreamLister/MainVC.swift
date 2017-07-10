@@ -14,6 +14,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentView: UISegmentedControl!
     var controller: NSFetchedResultsController<Item>!
+    var stores = [Store]()
+    var itemType = [ItemType]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,73 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.dataSource = self
         
         //generateTestData()
+        checkCoreDataStorage()
         attemptFetch()
     }
+    
+    func checkCoreDataStorage(){
+        let fetchStoreRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        let fetchItemTypeRequest: NSFetchRequest<ItemType> = ItemType.fetchRequest()
+        var noCoreData = false
+        do {
+            //Check our core data store
+            self.stores = try context.fetch(fetchStoreRequest)
+            self.itemType = try context.fetch(fetchItemTypeRequest)
+            //Do we have any stores?
+            if stores.count == 0{
+                //No stores found so add some default values to the stores entity
+                let store = Store(context: context)
+                store.name = "Amazon"
+                let store2 = Store(context: context)
+                store2.name = "Top Man"
+                let store3 = Store(context: context)
+                store3.name = "ASDA"
+                let store4 = Store(context: context)
+                store4.name = "Tesco"
+                let store5 = Store(context: context)
+                store5.name = "Apple"
+                let store6 = Store(context: context)
+                store6.name = "PC World"
+                noCoreData = true
+            }
+            
+            //Do we have any item types
+            if itemType.count == 0{
+                //No item types were found so add some default values to the item type entity
+                let itemType = ItemType(context: context)
+                itemType.type = "Electronics"
+                let itemType2 = ItemType(context: context)
+                itemType2.type = "Holidays"
+                let itemType3 = ItemType(context: context)
+                itemType3.type = "Autos"
+                let itemType4 = ItemType(context: context)
+                itemType4.type = "Computers"
+                let itemType5 = ItemType(context: context)
+                itemType5.type = "Home"
+                let itemType6 = ItemType(context: context)
+                itemType6.type = "Clothes"
+                noCoreData = true
+
+            }
+            
+            if noCoreData{
+                //Add a single item to the list so that we always have one item ready to show and edit when the app is first installed/used
+                let item = Item(context: context)
+                item.title = "Edit this title to set your own first item"
+                item.price = 0.00
+                item.details = "Edit this description to set your own first item"
+                item.lastUpdated = getSummerTime(today: Date())
+                
+            }
+            ad.saveContext()
+            
+        } catch  {
+            //Handle error
+            let error = error as NSError
+            print("\(error)")
+        }
+    }
+
 
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = controller.sections{
@@ -52,7 +119,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 176
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,8 +144,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         let priceSort = NSSortDescriptor(key: "price", ascending: true)
         let titleSort = NSSortDescriptor(key: "title", ascending: true)
-        //let typeSort = NSSortDescriptor(key: "category", ascending: true)
-        
+        let typeSort = NSSortDescriptor(key: "typeId.type", ascending: true)
+        let storeSort = NSSortDescriptor(key: "storeId.name", ascending: true)
         switch segmentView.selectedSegmentIndex {
         case 0:
             fetchRequest.sortDescriptors = [dateSort]
@@ -86,8 +153,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             fetchRequest.sortDescriptors = [priceSort]
         case 2:
             fetchRequest.sortDescriptors = [titleSort]
+        case 3:
+            fetchRequest.sortDescriptors = [storeSort]
         default:
-            fetchRequest.sortDescriptors = [dateSort]
+            fetchRequest.sortDescriptors = [typeSort]
         }
         
         
@@ -144,25 +213,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
-    func generateTestData(){
-        let item = Item(context: context)
-        item.title = "New iPad Pro"
-        item.price = 650.99
-        item.details = "New iPad pro for all my needs as an iOS developer. I hope I can afford this before the year is out so that I can continue on my development work."
-        
-        let item2 = Item(context: context)
-        item2.title = "New house"
-        item2.price = 120_000
-        item2.details = "I've never had a new house before, so it would be great to do this before I retire of die!"
-        
-        let item3 = Item(context: context)
-        item3.title = "New Kia Soul"
-        item3.price = 15_543.33
-        item3.details = "This is my current fav car to be next on my list. Hopefully by September 2018 I will be able to get this car."
-        
-        ad.saveContext()
-        
-    }
- 
+    
 }
 

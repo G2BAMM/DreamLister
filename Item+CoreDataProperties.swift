@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  DreamLister
 //
-//  Created by Brian McAulay on 28/06/2017.
+//  Created by Brian McAulay on 10/07/2017.
 //  Copyright © 2017 Brian McAulay. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ extension Item {
 
     @NSManaged public var created: NSDate?
     @NSManaged public var details: String?
+    @NSManaged public var lastUpdated: NSDate?
     @NSManaged public var price: Double
     @NSManaged public var title: String?
     @NSManaged public var imageId: Image?

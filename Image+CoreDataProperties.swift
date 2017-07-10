@@ -2,7 +2,7 @@
 //  Image+CoreDataProperties.swift
 //  DreamLister
 //
-//  Created by Brian McAulay on 28/06/2017.
+//  Created by Brian McAulay on 10/07/2017.
 //  Copyright © 2017 Brian McAulay. All rights reserved.
 //
 
