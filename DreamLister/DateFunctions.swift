@@ -39,7 +39,7 @@ func getTimeDifference(dateToCheck: Date) -> String {
         }
         //One second or more had passed since the date was updated so just show that difference and ignore the rest
         return "\(timeDifference.second!) \(setPlurals(timeValue: timeDifference.second!, timePortion: "seconds")) ago"
-    }
+    } 
     
 }
 
