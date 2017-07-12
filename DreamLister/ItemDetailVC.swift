@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var txtTitle: CustomTextField!
     @IBOutlet weak var txtPrice: CustomTextField!
     @IBOutlet weak var txtDetails: CustomTextField!
@@ -37,6 +37,13 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         itemTypePicker.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        //Configure our keyboards to show the done button and implement the delegate to dismiss
+        txtTitle.returnKeyType = UIReturnKeyType.done
+        txtTitle.delegate = self
+        txtPrice.returnKeyType = UIReturnKeyType.done
+        txtPrice.delegate = self
+        txtDetails.returnKeyType = UIReturnKeyType.done
+        txtDetails.delegate = self
         
         //Set our top navigation bar back button
         if let topItem = self.navigationController?.navigationBar.topItem{
@@ -71,9 +78,14 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         checkSaveButton()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
     
     @IBAction func btnPickStore_Clicked(_ sender: Any) {
         //Set the input screen up ready to pick a store
+        view.endEditing(true)
         vwStoresAndTypes.isHidden = true
         vwDoneAndCancel.isHidden = false
         storePicker.isHidden = false
@@ -83,11 +95,13 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     @IBAction func btnItemType_Clicked(_ sender: Any) {
         //Set the input screen up ready to pick an item type
+        view.endEditing(true)
         vwStoresAndTypes.isHidden = true
         vwDoneAndCancel.isHidden = false
         itemTypePicker.isHidden = false
         btnAddEdit.isHidden = true
     }
+    
     
     
     @IBAction func btnDone_Clicked(_ sender: Any) {
@@ -170,6 +184,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         if pickerView == storePicker{
             btnSelectStore.setTitle(stores[storePicker.selectedRow(inComponent: 0)].name, for: .normal)
         }else{
